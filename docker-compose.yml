@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: 1315
+      MYSQL_DATABASE: ecole
+    ports:
+      - "3308:3306"
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/
+    cap_add:
+      - SYS_NICE
+
+  web:
+    image: tomcat:9
+    environment:
+      JDBC_DRIVER: com.mysql.cj.jdbc.Driver
+      JDBC_URL: jdbc:mysql://db:3306/ecole?connectTimeout=0&amp;socketTimeout=0&amp;autoReconnect=true
+      JDBC_USER: root
+      JDBC_PASSWORD: 1315
+    ports:
+      - "8087:8080"
+    volumes:
+      - ./tomcat/webapps:/usr/local/tomcat/webapps
+    links:
+      - db

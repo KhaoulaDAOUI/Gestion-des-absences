@@ -2,7 +2,7 @@
 
 <Resource name="jdbc/ecole" auth="Container" 
 type="javax.sql.DataSource" username="root"
-password="1315" driverClassName="com.mysql.jdbc.Driver"
+password="1315" driverClassName="com.mysql.cj.jdbc.Driver"
 url="jdbc:mysql://localhost:3306/ecole" />
 
 

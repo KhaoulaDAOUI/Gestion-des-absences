@@ -17,6 +17,14 @@ public class TestJdbc {
 			Connection myConn =
 					DriverManager.getConnection(jdbcUrl, user, pass);
 			
+			System.out.println(myConn);
+			if(myConn != null) {
+				System.out.println("1");
+			}
+			else {
+				System.out.println("0");
+			}
+			
 			System.out.println("Connection successful!!!");
 			
 		}

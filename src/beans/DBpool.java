@@ -15,10 +15,6 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 
-
-
-
-
 public class DBpool {
 	private static DBpool instance;
 	private DataSource dataSource;
